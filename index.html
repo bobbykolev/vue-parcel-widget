@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Vue.js App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+  </head>
+  <body>
+    <div id="comp1">
+    	<comp-one val="comp1 with val"></comp-one>
+    </div>
+    <div id="comp2">
+		<comp-one val="comp1 with another val"></comp-one>
+    </div>
+    <div id="comp3">
+		<comp-one val="third comp1"></comp-one>
+    </div>
+    <div id="app"></div>
+    <div id="comp3"></div>
+    <!-- Note the reference to src here. Parcel will rewrite it on build. -->
+    <script src="./src/main.js"></script>
+    <script>
+    	window.renderVueWidget('#app', 'App');
+    	window.renderVueWidget('#comp1', 'Comp1');
+    	window.renderVueWidget('#comp2', 'Comp1');
+    	window.renderVueWidget('#comp3', 'Comp1');
+    </script>
+  </body>
+</html>
