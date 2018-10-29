@@ -1,5 +1,7 @@
 # vue-parcel-widget
 
+######node and npm required
+
 `npm install`
 
-`npm start` or `npm run build` (and serve the dist directory)
+`npm start` and open http://localhost:1234 in the browser or `npm run build` for production build
