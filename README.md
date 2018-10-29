@@ -1,6 +1,6 @@
 # vue-parcel-widget
 
-######node and npm required
+###### node and npm required
 
 `npm install`
 
