@@ -2,10 +2,10 @@
 <div>
     <h5>{{ msg + ' ' + this.val }}</h5>
     <div class="list">
-        <user-item v-for="item in list" :key="item.id" :item="item">
+        <user-item v-for="(item, index) in list" :key="item.name" :item="item" :index="index">
             <user-item>
     </div>
-    <load-more-btn v-if="visibleMore" @load-click="loadMoreClick"></load-more-btn>
+    <load-more-btn :loading="loading" v-if="visibleMore" @load-click="loadMoreClick"></load-more-btn>
 </template>
 
 <script>
@@ -18,10 +18,11 @@ export default {
     name: 'app-list',
     data() {
         return {
-            msg: 'App List',
+            msg: 'SWAPI with Nicolas Cage gifs',
             currentPage: 1,
             visibleMore: true,
-            list: []
+            list: [],
+            loading: false
         }
     },
     props: ['val'],
@@ -38,20 +39,25 @@ export default {
             this.getData();
         },
         getData() {
-            return restUtil.get('https://reqres.in/api/users', {
+            this.loading = true;
+            return restUtil.get('https://swapi.co/api/people/', {
                 page: this.currentPage
-            }, this.onSuccess);
+            }, this.onSuccess, this.onError);
         },
         onSuccess: function (data) {
+            this.loading = false;
             if (this.currentPage === 1) {
-                this.list = data.data;
+                this.list = data.results;
             } else {
-                this.list = [...this.list, ...data.data];
+                this.list = [...this.list, ...data.results];
             }
 
-            if (data.total <= this.list.length) {
+            if (data.count <= this.list.length) {
                 this.visibleMore = false;
             }
+        },
+        onError: function () {
+            this.loading = false;
         }
     }
 }
@@ -60,9 +66,9 @@ export default {
 <style lang="css">
 .list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin: 10px;
+    margin: 10px 0 10px;
 }
 </style>

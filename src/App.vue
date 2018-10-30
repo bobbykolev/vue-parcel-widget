@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             msg: 'Hello World!',
-            valueToPass: 'Users'
+            valueToPass: 'List'
         }
     },
     components: {
