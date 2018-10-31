@@ -2,7 +2,7 @@
 
 ###### node and npm required
 
-`npm install`
+`npm install` (node & npm required [nodejs](https://nodejs.org))
 
 `npm start` and open http://localhost:1234 in the browser or `npm run build` for production build
 
