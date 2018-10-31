@@ -1,0 +1,11 @@
+.wrapper {
+    height: 100%;
+    width: 360px;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #03DAC6;
+}

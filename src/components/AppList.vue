@@ -5,13 +5,13 @@
         <user-item v-for="(item, index) in list" :key="item.name" :item="item" :index="index">
             <user-item>
     </div>
-    <load-more-btn :loading="loading" v-if="visibleMore" @load-click="loadMoreClick"></load-more-btn>
+    <load-btn :loading="loading" v-if="visibleMore" @load-click="loadMoreClick"></load-btn>
 </template>
 
 <script>
-import restUtil from './restUtil';
+import restUtil from '../utils/restUtil';
 /* lazy loaded if commented */
-//import LoadMoreButton from './LoadMoreButton.vue';
+//import LoadButton from './LoadButton.vue';
 //import UserItem from './UserItem.vue';
 
 export default {
@@ -27,7 +27,7 @@ export default {
     },
     props: ['val'],
     components: {
-        'load-more-btn': () => import('./LoadMoreButton'),
+        'load-btn': () => import('./LoadButton'),
         'user-item': () => import('./UserItem')
     },
     created() {

@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import AppList from './AppList';
+import AppList from '../components/AppList';
 
 export default {
-    name: 'app',
+    name: 'list-page',
     data() {
         return {
             msg: 'Hello World!',
@@ -21,17 +21,3 @@ export default {
     },
 }
 </script>
-
-<style lang="css">
-.wrapper {
-    height: 100%;
-    width: 360px;
-    margin: auto;
-    text-align: center;
-    font-family: sans-serif;
-}
-
-h1 {
-    color: #03DAC6;
-}
-</style>

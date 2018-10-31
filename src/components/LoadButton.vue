@@ -1,5 +1,5 @@
 <template>
-<button :class="loading ? 'disabled' :''" class="btn" @click="loadMore" :disabled="loading">
+<button :class="loading ? 'disabled' :''" class="btn" @click="onClick" :disabled="loading">
     <template v-if="loading" class="">
         <div class="loading animated">
             <div></div>
@@ -13,10 +13,10 @@
 
 <script>
 export default {
-    name: 'load-more-btn',
+    name: 'load-btn',
     props: ['loadClick', 'loading'],
     methods: {
-        loadMore: function (event) {
+        onClick: function (event) {
             this.$emit('load-click', event);
         }
     }
